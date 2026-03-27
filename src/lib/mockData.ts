@@ -124,10 +124,10 @@ export const mockContent: Content[] = [
     views_count: 1500,
     is_active: true,
     is_featured: true,
-    solution_url: '/herramientas/sintesis', 
+    solution_url: '/herramientas/sintesis',
     average_rating: 4.9,
     rating_count: 120,
-    image_url: '/images/medgemma-he.png', 
+    image_url: '/images/medgemma-he.png',
     logo_icon: 'biotech',
     subsections: ['LLM/NLP', 'Deep Learning'],
     tool_type: 'Visión por computador',
@@ -466,26 +466,70 @@ export const mockContent: Content[] = [
     ],
     image_url: '/images/sepsis-ia-award.jpg',
     logo_icon: 'emoji_events'
+  },
+  {
+    id: '27',
+    title: 'Identificación de subgrupos clínicos en sepsis mediante modelos de mezcla gaussiana: un análisis basado en inteligencia artificial',
+    slug: 'sepsis-gmm',
+    excerpt: 'Proyecto de investigación orientado a la identificación de subgrupos clínicos en pacientes con sepsis mediante técnicas de aprendizaje no supervisado. A partir de modelos de mezcla gaussiana (GMM), se busca caracterizar fenotipos clínicos diferenciables asociados a desenlaces relevantes como mortalidad intrahospitalaria y estancia hospitalaria prolongada.',
+    body_content: 'El modelo identificó cinco clústeres clínicamente diferenciables con variaciones significativas en severidad clínica (APACHE II, SOFA), disfunción orgánica (creatinina, lactato, pH) y estado hemodinámico. La mortalidad intrahospitalaria varió entre 25% y 75%, evidenciando perfiles de riesgo claramente diferenciados. Los clústeres 2 y 3 presentaron los perfiles más graves.',
+    category: 'research',
+    tags: ['Sepsis', 'GMM', 'MachineLearning', 'CuidadoCrítico', 'Clustering', 'IA', 'AprendizajeNoSupervisado'],
+    published_at: '2025-06-12T09:00:00Z',
+    base_relevance: 97,
+    views_count: 1850,
+    is_active: true,
+    is_featured: true,
+    solution_url: null,
+    average_rating: 4.8,
+    rating_count: 28,
+    image_url: '/images/sepsis-gmm-hero.png',
+    logo_icon: 'monitor_heart',
+    subsections: ['Trabajo de Semillero'],
+    funding_type: 'No',
+    research_status: 'Terminado'
+  },
+  {
+    id: '28',
+    title: 'Identificación de Subgrupos Clínicos en Sepsis mediante GMM',
+    slug: 'modelo-gmm-sepsis',
+    excerpt: 'Modelo de clustering no supervisado basado en Gaussian Mixture Models que identifica cinco fenotipos clínicos diferenciados en pacientes con sepsis, estratificando riesgo de mortalidad intrahospitalaria y estancia hospitalaria prolongada para apoyar decisiones en medicina crítica.',
+    body_content: 'Modelo basado en Gaussian Mixture Models (GMM) entrenado sobre 96 pacientes adultos con diagnóstico de sepsis. Identifica cinco clústeres clínicamente diferenciables con mortalidad intrahospitalaria variable entre 25% y 75% y estancia hospitalaria prolongada entre 57% y 75%. Los clústeres 2 y 3 presentan los perfiles más graves con mayor disfunción metabólica.',
+    category: 'solution',
+    tags: ['MachineLearning', 'Clustering', 'GMM', 'Sepsis', 'CuidadoCrítico', 'AprendizajeNoSupervisado'],
+    published_at: '2025-06-12T09:00:00Z',
+    base_relevance: 90,
+    views_count: 580,
+    is_active: true,
+    is_featured: false,
+    solution_url: '/p/modelo-gmm-sepsis',
+    average_rating: 4.8,
+    rating_count: 18,
+    image_url: '/images/sepsis-gmm-hero.png',
+    logo_icon: 'analytics',
+    subsections: ['Machine Learning'],
+    tool_type: 'Modelo de Clustering (GMM)',
+    status: 'Validado'
   }
 ];
 
 export function calculateDynamicScore(content: Content): number {
-  const w1 = 1.0; 
-  const w2 = 0.05; 
-  const gravity = 1.5; 
-  
+  const w1 = 1.0;
+  const w2 = 0.05;
+  const gravity = 1.5;
+
   const ageInMs = Date.now() - new Date(content.published_at).getTime();
   const ageInHours = Math.max(0, ageInMs / (1000 * 60 * 60));
-  
+
   const numerator = (content.base_relevance * w1) + (content.views_count * w2);
   const denominator = Math.pow(ageInHours + 2, gravity);
-  
+
   return numerator / denominator;
 }
 
 export function getRankedContent(categoryFilter?: string, subsectionFilter?: string, sortBy: 'ranking' | 'date' | 'views' = 'ranking'): Content[] {
   let filtered = mockContent;
-  
+
   // Filtro por categoría general (solution, research, etc)
   if (categoryFilter && categoryFilter !== 'all') {
     filtered = filtered.filter(item => item.category === categoryFilter);

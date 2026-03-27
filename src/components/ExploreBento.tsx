@@ -7,13 +7,13 @@ export default function ExploreBento() {
     <section className="py-24 bg-[var(--color-surface-container-low)] px-8 lg:px-24">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
-          <h2 className="text-4xl font-extrabold text-[var(--color-primary)]">Explorar contenido</h2>
+          <Link href="/explorar" className="text-4xl font-extrabold text-[var(--color-primary)] hover:text-[var(--color-secondary)] transition-colors">Explorar contenido</Link>
           <div className="flex flex-wrap gap-2">
-            <button className="px-4 py-2 bg-[var(--color-primary)] text-white text-sm font-bold rounded-full">Todos</button>
-            <button className="px-4 py-2 bg-[var(--color-surface)] hover:bg-[var(--color-surface-container-high)] transition-colors text-sm font-bold rounded-full text-[var(--color-on-surface)]">Soluciones</button>
-            <button className="px-4 py-2 bg-[var(--color-surface)] hover:bg-[var(--color-surface-container-high)] transition-colors text-sm font-bold rounded-full text-[var(--color-on-surface)]">Investigaciones</button>
-            <button className="px-4 py-2 bg-[var(--color-surface)] hover:bg-[var(--color-surface-container-high)] transition-colors text-sm font-bold rounded-full text-[var(--color-on-surface)]">Educación</button>
-            <button className="px-4 py-2 bg-[var(--color-surface)] hover:bg-[var(--color-surface-container-high)] transition-colors text-sm font-bold rounded-full text-[var(--color-on-surface)]">Noticias</button>
+            <Link href="/explorar" className="px-4 py-2 bg-[var(--color-primary)] text-white text-sm font-bold rounded-full hover:bg-[var(--color-secondary)] transition-colors">Todos</Link>
+            <Link href="/soluciones" className="px-4 py-2 bg-[var(--color-surface)] hover:bg-[var(--color-surface-container-high)] transition-colors text-sm font-bold rounded-full text-[var(--color-on-surface)]">Soluciones</Link>
+            <Link href="/investigacion" className="px-4 py-2 bg-[var(--color-surface)] hover:bg-[var(--color-surface-container-high)] transition-colors text-sm font-bold rounded-full text-[var(--color-on-surface)]">Investigaciones</Link>
+            <Link href="/educacion" className="px-4 py-2 bg-[var(--color-surface)] hover:bg-[var(--color-surface-container-high)] transition-colors text-sm font-bold rounded-full text-[var(--color-on-surface)]">Educación</Link>
+            <Link href="/noticias" className="px-4 py-2 bg-[var(--color-surface)] hover:bg-[var(--color-surface-container-high)] transition-colors text-sm font-bold rounded-full text-[var(--color-on-surface)]">Noticias</Link>
           </div>
         </div>
 
@@ -41,22 +41,22 @@ export default function ExploreBento() {
           </div>
 
           {/* Education Block */}
-          <div className="bg-[var(--color-primary)] text-white p-8 rounded-3xl flex flex-col justify-between shadow-sm">
+          <Link href="/p/protocolos-eticos" className="bg-[var(--color-primary)] text-white p-8 rounded-3xl flex flex-col justify-between shadow-sm hover:opacity-90 transition-opacity">
             <span className="material-symbols-outlined text-4xl mb-4">menu_book</span>
             <div>
               <h4 className="text-lg font-bold mb-2">Protocolos Éticos</h4>
               <p className="text-xs text-white/70">Guía práctica para el uso de IA en entornos clínicos.</p>
             </div>
-          </div>
+          </Link>
 
           {/* Masterclass Block */}
-          <div className="bg-[var(--color-secondary)] p-8 rounded-3xl flex flex-col justify-between text-white shadow-sm">
+          <Link href="/educacion" className="bg-[var(--color-secondary)] p-8 rounded-3xl flex flex-col justify-between text-white shadow-sm hover:opacity-90 transition-opacity">
             <span className="material-symbols-outlined text-4xl mb-4">school</span>
             <div>
               <h4 className="text-lg font-bold mb-2">Masterclass IA</h4>
               <p className="text-xs text-white/70">Formación avanzada para profesionales de la salud.</p>
             </div>
-          </div>
+          </Link>
 
           {/* Newsletter Block */}
           <div className="md:col-span-2 bg-[var(--color-tertiary)] text-white p-8 rounded-3xl relative overflow-hidden flex items-center gap-8 shadow-sm">
