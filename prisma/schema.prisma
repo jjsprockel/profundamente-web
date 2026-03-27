@@ -1,0 +1,124 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// Modelo central para identificar cada contenido de ProfundaMente
+model Publication {
+  id              String   @id @default(uuid())
+  title           String
+  category        String   // 'solution', 'research', 'education', 'news'
+  subcategory     String?
+  status          String   @default("published")
+  publishedAt     DateTime @default(now())
+  relevanceScore  Float    @default(0)
+  dynamicScore    Float    @default(0)
+  viewsCount      Int      @default(0)
+  slug            String   @unique
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relaciones con Ratings
+  solutionRatings   SolutionRating[]
+  researchRatings   ResearchRating[]
+  educationRatings  EducationRating[]
+  newsRatings       NewsRating[]
+
+  // Relaciones con Resúmenes (1-a-1)
+  solutionSummary   SolutionRatingSummary?
+  researchSummary   ResearchRatingSummary?
+  educationSummary  EducationRatingSummary?
+  newsSummary       NewsRatingSummary?
+
+  @@index([category])
+  @@index([publishedAt])
+  @@index([slug])
+}
+
+// --- Tablas de Valoraciones Granulares ---
+
+model SolutionRating {
+  id            String      @id @default(uuid())
+  publicationId String
+  publication   Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  rating        Int         // 1 a 5
+  createdAt     DateTime    @default(now())
+
+  @@index([publicationId])
+  @@index([createdAt])
+}
+
+model ResearchRating {
+  id            String      @id @default(uuid())
+  publicationId String
+  publication   Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  rating        Int
+  createdAt     DateTime    @default(now())
+
+  @@index([publicationId])
+  @@index([createdAt])
+}
+
+model EducationRating {
+  id            String      @id @default(uuid())
+  publicationId String
+  publication   Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  rating        Int
+  createdAt     DateTime    @default(now())
+
+  @@index([publicationId])
+  @@index([createdAt])
+}
+
+model NewsRating {
+  id            String      @id @default(uuid())
+  publicationId String
+  publication   Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  rating        Int
+  createdAt     DateTime    @default(now())
+
+  @@index([publicationId])
+  @@index([createdAt])
+}
+
+// --- Tablas de Resumen (Cache) ---
+
+model SolutionRatingSummary {
+  publicationId   String      @id
+  publication     Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  avgRating       Float       @default(0)
+  totalRatings    Int         @default(0)
+  weightedRating  Float       @default(0)
+  updatedAt       DateTime    @updatedAt
+}
+
+model ResearchRatingSummary {
+  publicationId   String      @id
+  publication     Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  avgRating       Float       @default(0)
+  totalRatings    Int         @default(0)
+  weightedRating  Float       @default(0)
+  updatedAt       DateTime    @updatedAt
+}
+
+model EducationRatingSummary {
+  publicationId   String      @id
+  publication     Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  avgRating       Float       @default(0)
+  totalRatings    Int         @default(0)
+  weightedRating  Float       @default(0)
+  updatedAt       DateTime    @updatedAt
+}
+
+model NewsRatingSummary {
+  publicationId   String      @id
+  publication     Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  avgRating       Float       @default(0)
+  totalRatings    Int         @default(0)
+  weightedRating  Float       @default(0)
+  updatedAt       DateTime    @updatedAt
+}
