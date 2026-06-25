@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   basePath: '/profundamente-web',
   images: {
-    unoptimized: true,
+    loader: 'custom',
+    loaderFile: './src/lib/imageLoader.ts',
     remotePatterns: [
       {
         protocol: 'https',
