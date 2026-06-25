@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Content } from '@/types/database';
-import StarRating from './StarRating';
 
 export default function NewsCard({ content }: { content: Content }) {
   // Use a fallback image if none exists
@@ -21,18 +20,13 @@ export default function NewsCard({ content }: { content: Content }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-container-lowest)] to-transparent opacity-80" />
         
-        {/* Calificación y Logo Flotando */}
-        <div className="absolute bottom-3 left-4 right-4 flex justify-between items-end">
+        {/* Logo Flotando */}
+        <div className="absolute bottom-3 left-4">
           <div className="w-12 h-12 bg-[var(--color-surface)] shadow-lg rounded-xl flex flex-shrink-0 items-center justify-center">
             <span className="material-symbols-outlined text-[var(--color-primary)] text-2xl">
               {content.logo_icon || 'article'}
             </span>
           </div>
-          {content.rating_count > 0 && (
-            <div className="bg-[var(--color-surface)]/90 backdrop-blur-md px-3 py-1 rounded-full shadow-sm">
-              <StarRating rating={content.weighted_rating ?? content.average_rating} count={content.rating_count} />
-            </div>
-          )}
         </div>
       </div>
 

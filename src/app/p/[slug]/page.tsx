@@ -1,6 +1,5 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import StarRating from '@/components/StarRating';
 import { mockContent } from '@/lib/mockData';
 import Link from 'next/link';
 import SolutionDisclaimerWrapper from '@/components/SolutionDisclaimerWrapper';
@@ -34,8 +33,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const title = mockInfo.title || '';
   const excerpt = mockInfo.excerpt || '';
   const bodyContent = mockInfo.body_content || '';
-  const displayRating = mockInfo.weighted_rating ?? mockInfo.average_rating ?? 0;
-  const totalRatings = mockInfo.rating_count ?? 0;
   const isFeatureTool = mockInfo.solution_url !== null && mockInfo.solution_url !== undefined;
 
   return (
@@ -61,10 +58,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                  category === 'research' ? 'Publicado: ' : 'Programa Lanzado: '}
                 {new Date(publishedAt).toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}
               </span>
-              <div className="flex items-center gap-2 ml-auto">
-                <span className="text-sm font-bold text-[var(--color-on-surface-variant)]">Rating Global:</span>
-                <StarRating rating={displayRating} count={totalRatings} />
-              </div>
             </div>
 
             <h1 className="text-4xl lg:text-5xl font-extrabold text-[var(--color-primary)] mb-6 leading-tight">
@@ -98,16 +91,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               </Link>
             </div>
           )}
-
-          <div className="mt-16 pt-8 border-t border-[var(--color-outline-variant)]/30">
-            <h3 className="text-2xl font-bold text-[var(--color-on-surface)] mb-2">Tu opinión es vital</h3>
-            <p className="text-[var(--color-on-surface-variant)] mb-6">
-              Califica qué tan pertinente e innovador resulta este {category === 'solution' ? 'módulo de IA' : 'artículo'} para tu práctica clínica.
-            </p>
-            <div className="p-6 bg-[var(--color-primary)]/5 rounded-2xl border border-[var(--color-primary)]/10 text-[var(--color-on-surface-variant)] text-sm">
-              La valoración interactiva estará disponible en la versión completa de la plataforma.
-            </div>
-          </div>
 
         </div>
       </main>

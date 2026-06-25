@@ -1,7 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SolutionCard from '@/components/SolutionCard';
-import StarRating from '@/components/StarRating';
 import { mockContent } from '@/lib/mockData';
 import SolutionDisclaimerWrapper from '@/components/SolutionDisclaimerWrapper';
 
@@ -17,13 +16,10 @@ export default async function NefropatiaContrastePage() {
       <main className="flex-grow bg-[var(--color-surface)] min-h-screen pt-32 pb-24 text-[var(--color-on-surface)]">
         <div className="max-w-5xl mx-auto px-8 lg:px-12">
           
-          {/* Header Section: Logo y Calificación */}
-          <div className="flex justify-between items-center mb-8">
+          {/* Logo */}
+          <div className="mb-8">
             <div className="w-16 h-16 bg-[var(--color-surface-container)] rounded-2xl flex items-center justify-center text-[var(--color-secondary)] shadow-sm border border-[var(--color-outline-variant)]/30">
               <span className="material-symbols-outlined text-4xl">{research.logo_icon || 'monitor_heart'}</span>
-            </div>
-            <div className="bg-[var(--color-surface-container-lowest)] px-4 py-2 rounded-full shadow-sm border border-[var(--color-outline-variant)]/20">
-              <StarRating rating={research.average_rating} count={research.rating_count} />
             </div>
           </div>
 

@@ -3,7 +3,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import InteractiveToolContainer from '@/components/InteractiveToolContainer';
-import RatingFeedback from '@/components/RatingFeedback';
 import { useState } from 'react';
 
 export default function SintesisToolPage() {
@@ -71,7 +70,6 @@ export default function SintesisToolPage() {
                   </div>
                 </div>
 
-                <RatingFeedback publicationId="1" category="solution" />
               </>
             )}
           >

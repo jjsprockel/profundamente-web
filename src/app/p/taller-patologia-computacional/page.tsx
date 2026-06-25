@@ -2,8 +2,6 @@
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import RatingFeedback from '@/components/RatingFeedback';
-import StarRating from '@/components/StarRating';
 import { mockContent } from '@/lib/mockData';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -70,9 +68,6 @@ export default function TallerPatologiaComputacionalPage() {
                 <span className="material-symbols-outlined text-[16px] opacity-60">schedule</span>
                 7:00 a.m. – 1:00 p.m.
               </span>
-              <div className="ml-auto">
-                <StarRating rating={article.average_rating} count={article.rating_count} />
-              </div>
             </div>
 
             <h1 className="text-4xl lg:text-5xl font-extrabold text-[var(--color-tertiary)] mb-4 font-[family-name:var(--font-headline)] leading-tight">
@@ -279,16 +274,6 @@ export default function TallerPatologiaComputacionalPage() {
             ))}
           </div>
 
-          {/* Rating */}
-          <div className="pt-8 border-t border-[var(--color-outline-variant)]/30">
-            <h3 className="text-2xl font-bold text-[var(--color-on-surface)] mb-2">Tu opinión es vital</h3>
-            <p className="text-[var(--color-on-surface-variant)] mb-4">
-              Califica qué tan pertinente resulta este programa de formación para tu práctica profesional.
-            </p>
-            <div className="-mt-4">
-              <RatingFeedback publicationId={article.id} category="education" />
-            </div>
-          </div>
 
         </div>
       </main>

@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import StarRating from './StarRating';
 
 export default function ExploreBento() {
   return (
@@ -28,9 +27,8 @@ export default function ExploreBento() {
               className="h-64 w-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
             <div className="p-8">
-              <div className="flex justify-between items-start mb-2">
+              <div className="mb-2">
                 <span className="text-xs font-bold text-[var(--color-secondary)] uppercase tracking-widest">Investigación Destacada</span>
-                <StarRating rating={4.7} count={45} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-[var(--color-on-surface)]">Proyecto GLORIA</h3>
               <p className="text-[var(--color-on-surface-variant)] text-sm mb-6">La primera red de telepatología digital de Latinoamérica potenciada con inteligencia artificial.</p>

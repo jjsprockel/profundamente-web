@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import StarRating from './StarRating';
 import { Content } from '@/types/database';
 
 interface ResearchCardProps {
@@ -43,12 +42,11 @@ export default function ResearchCard({ content }: ResearchCardProps) {
 
       <div className="p-8 flex flex-col flex-grow">
         
-        {/* 2 & 3. Logo en línea con Calificación */}
-        <div className="flex justify-between items-center mb-4">
+        {/* Logo */}
+        <div className="mb-4">
           <div className={`w-10 h-10 rounded-xl bg-[var(--color-surface-container)] flex items-center justify-center ${mainColorClass} shadow-sm border border-[var(--color-surface-container-highest)]`}>
             <span className="material-symbols-outlined">{content.logo_icon || 'science'}</span>
           </div>
-          <StarRating rating={content.weighted_rating ?? content.average_rating} count={content.rating_count} />
         </div>
 
         {/* 4. Subsección */}

@@ -3,7 +3,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import InteractiveToolContainer from '@/components/InteractiveToolContainer';
-import RatingFeedback from '@/components/RatingFeedback';
 import { useState } from 'react';
 
 export default function PrediccionToolPage() {
@@ -80,7 +79,6 @@ export default function PrediccionToolPage() {
                   </div>
                 </div>
 
-                <RatingFeedback publicationId="2" category="solution" />
               </>
             )}
           >

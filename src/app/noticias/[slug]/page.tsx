@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import StarRating from '@/components/StarRating';
 import { mockContent } from '@/lib/mockData';
 
 export function generateStaticParams() {
@@ -26,9 +25,6 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
     );
   }
 
-  const displayRating = news.weighted_rating ?? news.average_rating ?? 0;
-  const totalRatings = news.rating_count ?? 0;
-
   const formattedDate = new Intl.DateTimeFormat('es-CO', {
     day: 'numeric',
     month: 'long',
@@ -41,18 +37,13 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
       <main className="flex-grow bg-[var(--color-surface)] min-h-screen pt-32 pb-24">
         <article className="max-w-4xl mx-auto px-6 lg:px-8">
 
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-            <div className="flex items-center gap-3 bg-[var(--color-primary)]/5 px-4 py-2 rounded-full border border-[var(--color-primary)]/10">
+          <div className="mb-8">
+            <div className="flex items-center gap-3 bg-[var(--color-primary)]/5 px-4 py-2 rounded-full border border-[var(--color-primary)]/10 inline-flex">
               <span className="material-symbols-outlined text-[var(--color-primary)] text-sm">calendar_today</span>
               <span className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-tighter italic">
                 {slug === 'constitucion-singularidad' ? 'Bogotá D.C., 16 de junio de 2025' : formattedDate}
               </span>
             </div>
-            {(totalRatings > 0 || displayRating > 0) && (
-              <div className="bg-[var(--color-surface-container-lowest)] px-4 py-2 rounded-full shadow-sm border border-[var(--color-outline-variant)]/20">
-                <StarRating rating={displayRating} count={totalRatings} />
-              </div>
-            )}
           </div>
 
           <h1 className="text-4xl lg:text-5xl font-extrabold text-[var(--color-primary)] mb-8 font-[family-name:var(--font-headline)] leading-tight tracking-tight">

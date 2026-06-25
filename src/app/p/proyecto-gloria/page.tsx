@@ -2,8 +2,6 @@
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import RatingFeedback from '@/components/RatingFeedback';
-import StarRating from '@/components/StarRating';
 import SolutionCard from '@/components/SolutionCard';
 import EducationCard from '@/components/EducationCard';
 import { mockContent } from '@/lib/mockData';
@@ -36,10 +34,6 @@ export default function ProyectoGloriaPage() {
               <span className="text-sm font-medium text-[var(--color-on-surface-variant)]">
                 Publicado: {new Date(article.published_at).toLocaleDateString()}
               </span>
-              <div className="flex items-center gap-2 ml-auto">
-                <span className="text-sm font-bold text-[var(--color-on-surface-variant)]">Rating Global:</span>
-                <StarRating rating={article.average_rating} count={article.rating_count} />
-              </div>
             </div>
 
             <h1 className="text-4xl lg:text-5xl font-extrabold text-[var(--color-primary)] mb-6 leading-tight">
@@ -336,15 +330,6 @@ export default function ProyectoGloriaPage() {
 
           </div>
 
-          <div className="mt-16 pt-8 border-t border-[var(--color-outline-variant)]/30">
-            <h3 className="text-2xl font-bold text-[var(--color-on-surface)] mb-2">Tu opinión es vital</h3>
-            <p className="text-[var(--color-on-surface-variant)] mb-4">
-              Califica qué tan pertinente e innovador resulta este proyecto para tu práctica clínica.
-            </p>
-            <div className="-mt-4">
-              <RatingFeedback publicationId={article.id} category="research" />
-            </div>
-          </div>
 
         </div>
       </main>
