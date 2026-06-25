@@ -1,13 +1,10 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import StarRating from '@/components/StarRating';
-import RatingFeedback from '@/components/RatingFeedback';
 import { mockContent } from '@/lib/mockData';
-import prisma from '@/lib/prisma';
 
 export default async function SemilleroSingularidadPage() {
   const entity = mockContent.find(c => c.slug === 'singularidad');
-  const pub = await prisma.publication.findUnique({ where: { slug: 'singularidad' } });
 
   if (!entity) return <div>Contenido no encontrado</div>;
 
@@ -218,7 +215,7 @@ export default async function SemilleroSingularidadPage() {
           
           {/* Sección de Calificación */}
           <div className="mt-16 pt-8 border-t border-[var(--color-outline-variant)]/30">
-             {pub && <RatingFeedback publicationId={pub.id} category={pub.category} />}
+                           <p className="text-xs text-[var(--color-outline)] italic">La valoración interactiva estará disponible en la versión completa de la plataforma.</p>
           </div>
         </div>
       </main>

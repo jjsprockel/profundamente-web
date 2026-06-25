@@ -1,35 +1,30 @@
+'use client';
+
+import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { PublicationService } from '@/lib/services/publicationService';
-import Link from 'next/link';
+import { mockContent } from '@/lib/mockData';
 import SolutionCard from '@/components/SolutionCard';
 import NewsCard from '@/components/NewsCard';
 import EducationCard from '@/components/EducationCard';
 import ResearchCard from '@/components/ResearchCard';
+import { Content } from '@/types/database';
 
-export default async function ExplorarPage({ 
-  searchParams 
-}: { 
-  searchParams: Promise<{ filter?: string }> 
-}) {
-  const params = await searchParams;
-  const filter = params.filter || 'all';
-  
-  // Obtener datos unificados (DB + Mocks)
-  const allContents = await PublicationService.getAllPublications();
-  
-  // Filtrar en el servidor
-  const filteredContents = filter === 'all' 
-    ? allContents 
+const categories = [
+  { id: 'all', label: 'Todos' },
+  { id: 'solution', label: 'Soluciones' },
+  { id: 'research', label: 'Investigaciones' },
+  { id: 'education', label: 'Educación' },
+  { id: 'news', label: 'Noticias' },
+];
+
+export default function ExplorarPage() {
+  const [filter, setFilter] = useState('all');
+
+  const allContents = mockContent.filter(item => item.is_active) as Content[];
+  const filteredContents = filter === 'all'
+    ? allContents
     : allContents.filter(c => c.category === filter);
-
-  const categories = [
-    { id: 'all', label: 'Todos' },
-    { id: 'solution', label: 'Soluciones' },
-    { id: 'research', label: 'Investigaciones' },
-    { id: 'education', label: 'Educación' },
-    { id: 'news', label: 'Noticias' },
-  ];
 
   return (
     <>
@@ -47,23 +42,21 @@ export default async function ExplorarPage({
             </div>
           </div>
 
-          {/* Filtros (Links en lugar de buttons con state) */}
           <div className="flex flex-wrap gap-2 mb-12">
             {categories.map((c) => (
-              <Link
+              <button
                 key={c.id}
-                href={`/explorar?filter=${c.id}`}
+                onClick={() => setFilter(c.id)}
                 className={`px-5 py-2.5 text-sm font-bold rounded-full transition-all ${filter === c.id
                     ? 'bg-[var(--color-primary)] text-white shadow-lg'
                     : 'bg-[var(--color-surface-container-lowest)] text-[var(--color-on-surface)] hover:bg-[var(--color-surface-container-high)] border border-[var(--color-outline-variant)]/30'
                   }`}
               >
                 {c.label}
-              </Link>
+              </button>
             ))}
           </div>
 
-          {/* Grilla / Bento */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredContents.map((item) => {
               if (item.category === 'news') return <NewsCard key={item.id} content={item} />;

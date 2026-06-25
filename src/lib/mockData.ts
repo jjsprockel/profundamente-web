@@ -510,6 +510,91 @@ export const mockContent: Content[] = [
     subsections: ['Machine Learning'],
     tool_type: 'Modelo de Clustering (GMM)',
     status: 'Validado'
+  },
+  {
+    id: '29',
+    title: 'Taller Básico de Patología Computacional – Programa GLORIA',
+    slug: 'taller-patologia-computacional-gloria',
+    excerpt: 'El Programa GLORIA realizó su primer Taller Básico de Patología Computacional: un evento híbrido certificado de 6 horas que reunió a patólogos, residentes, citohistotecnólogos e ingenieros biomédicos en la FUCS el 11 de abril de 2026.',
+    body_content: `El 11 de abril de 2026, el Programa GLORIA realizó con éxito su primer Taller Básico de Patología Computacional, celebrado de manera híbrida en la Sala Digital Grande — Biblioteca Darío Cadena Rey de la Fundación Universitaria de Ciencias de la Salud (FUCS), Sede Norte, Carrera 54 No. 67A – 80.
+
+El evento, moderado por el Dr. Rafael Parra Medina, reunió a profesionales del área de salud y tecnología interesados en comprender el impacto de la inteligencia artificial y el análisis digital de imágenes en la práctica diagnóstica actual. La jornada tuvo una capacidad presencial de 39 personas y contó además con transmisión virtual a través de Zoom.
+
+El programa académico, desarrollado entre las 7:00 a.m. y la 1:00 p.m., cubrió un arco temático progresivo: desde la presentación del Programa GLORIA y su alcance, hasta un taller práctico de análisis de imágenes digitales con QuPath. En los módulos teóricos, el Dr. John Jaime Sprockel Díaz abordó el panorama actual de la inteligencia artificial; Juan Andrés Méndez Galvis expuso las bases de Machine Learning aplicado a patología; y Javier Hernán Gil Gómez introdujo los conceptos clave sobre señales de imágenes en histopatología. El cierre práctico, a cargo del Dr. Andrés David Mosquera Zamudio, permitió a los participantes operar directamente sobre la plataforma QuPath para el análisis cuantitativo de imágenes de tejido.
+
+Los asistentes recibieron un certificado de asistencia con intensidad de 6 horas, avalado por la FUCS, la Sociedad de Cirugía de Bogotá – Hospital de San José, icontec (ISO 9001) y el Laboratorio de Patología Rita María Páez S.A.S., entre otras instituciones. El evento contó con financiación del proyecto Ciencias (contrato 789-2023) y la participación del Instituto Nacional de Cancerología Colombia y Laboratorios López Correa.
+
+Este taller representa un paso concreto en la misión formativa del Programa GLORIA, consolidando su compromiso con la transferencia de conocimiento en patología digital e inteligencia artificial aplicada a la salud diagnóstica en Colombia.`,
+    category: 'news',
+    tags: ['PatologíaComputacional', 'GLORIA', 'QuPath', 'FUCS', 'PatologíaDigital'],
+    published_at: '2026-04-11T07:00:00Z',
+    base_relevance: 93,
+    views_count: 870,
+    is_active: true,
+    is_featured: true,
+    solution_url: null,
+    average_rating: 4.8,
+    rating_count: 22,
+    social_links: [
+      { platform: 'LinkedIn', url: '#', icon: 'share' },
+      { platform: 'Twitter', url: '#', icon: 'public' }
+    ],
+    image_url: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&auto=format&fit=crop',
+    logo_icon: 'biotech'
+  },
+  {
+    id: '30',
+    title: 'Taller Básico de Patología Computacional – Programa GLORIA',
+    slug: 'taller-patologia-computacional',
+    excerpt: 'Programa de formación presencial e híbrida en patología digital, inteligencia artificial aplicada a histopatología y análisis de imágenes con QuPath. Certificado con 6 horas de intensidad, avalado por FUCS e icontec.',
+    body_content: `Programa de formación desarrollado en el marco del Programa GLORIA — Globalización de la Telepatología en Red con Aplicaciones de Inteligencia Artificial.
+
+AGENDA
+
+7:30 – 8:00 | Programa GLORIA
+Ponente: Rafael Parra Medina, MD, MSc, PhD
+Presentación del Programa GLORIA, sus objetivos, avances y el contexto de la patología digital en Colombia.
+
+8:00 – 8:30 | Inteligencia Artificial: ¿Para dónde vamos?
+Ponente: John Jaime Sprockel Díaz, MD, MSc
+Panorama actual de la IA en medicina: tendencias, modelos fundacionales y su impacto en el diagnóstico clínico.
+
+8:30 – 9:30 | Machine Learning aplicado a patología
+Ponente: Juan Andrés Méndez Galvis, Ing, MSc (st)
+Fundamentos de Machine Learning, tipos de aprendizaje y sus aplicaciones en análisis de imágenes histopatológicas.
+
+9:30 – 10:45 | Señales de imágenes en histopatología
+Ponente: Javier Hernán Gil Gómez, MSc, PhD (St)
+Preprocesamiento de imágenes digitales, extracción de características y técnicas de análisis cuantitativo en tejido histológico.
+
+10:45 – 11:00 | Break
+
+11:00 – 12:00 | Workshop: Plataforma de imágenes digitales con QuPath
+Ponente: Andrés David Mosquera Zamudio, MD, PhD
+Taller práctico en QuPath: segmentación, anotación y análisis cuantitativo de imágenes de whole slide imaging (WSI).
+
+12:00 – 12:30 | Evaluación y certificación de aprobación del curso
+Ponente: Javier Hernán Gil Gómez, MSc, PhD (St)
+Evaluación de los conocimientos adquiridos y proceso de certificación de asistencia.
+
+12:30 – 12:40 | Cierre y despedida
+Ponente: Rafael Parra Medina, MD, PhD`,
+    category: 'education',
+    tags: ['PatologíaDigital', 'QuPath', 'MachineLearning', 'GLORIA', 'Histopatología'],
+    published_at: '2026-04-11T07:00:00Z',
+    base_relevance: 91,
+    views_count: 640,
+    is_active: true,
+    is_featured: true,
+    solution_url: null,
+    average_rating: 4.9,
+    rating_count: 18,
+    education_subtype: 'Curso',
+    education_area: ['Patología Digital', 'IA aplicada a Salud', 'Histopatología'],
+    start_date: '2026-04-11T07:00:00Z',
+    end_date: '2026-04-11T13:00:00Z',
+    image_url: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&auto=format&fit=crop',
+    logo_icon: 'biotech'
   }
 ];
 

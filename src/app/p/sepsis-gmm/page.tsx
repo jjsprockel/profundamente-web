@@ -1,16 +1,12 @@
-import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import StarRating from '@/components/StarRating';
-import RatingFeedback from '@/components/RatingFeedback';
 import SolutionCard from '@/components/SolutionCard';
 import { mockContent } from '@/lib/mockData';
-import prisma from '@/lib/prisma';
 
 export default async function SepsisGMMPage() {
   const entity = mockContent.find(c => c.slug === 'sepsis-gmm');
   const solutionCard = mockContent.find(c => c.slug === 'modelo-gmm-sepsis');
-  const pub = await prisma.publication.findUnique({ where: { slug: 'sepsis-gmm' } });
 
   if (!entity) return <div>Contenido no encontrado</div>;
 
@@ -268,12 +264,9 @@ export default async function SepsisGMMPage() {
           {/* Valoración del lector */}
           <div className="mt-16 pt-8 border-t border-[var(--color-outline-variant)]/30">
             <h2 className="text-sm font-bold uppercase tracking-widest text-[var(--color-outline)] mb-6">Valoración del lector</h2>
-            {pub && <RatingFeedback publicationId={pub.id} category={pub.category} />}
-            {!pub && (
-              <p className="text-xs text-[var(--color-outline)] italic">
-                La valoración estará disponible una vez el contenido sea registrado en la base de datos.
-              </p>
-            )}
+            <p className="text-xs text-[var(--color-outline)] italic">
+              La valoración interactiva estará disponible en la versión completa de la plataforma.
+            </p>
           </div>
 
         </div>

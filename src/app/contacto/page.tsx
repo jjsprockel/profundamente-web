@@ -4,46 +4,8 @@ import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-type FormState = 'idle' | 'sending' | 'sent' | 'error';
-
 export default function ContactoPage() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
-  const [formState, setFormState] = useState<FormState>('idle');
-  const [errorMsg, setErrorMsg] = useState('');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name || !email || !message) return;
-
-    setFormState('sending');
-    setErrorMsg('');
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, subject, message }),
-      });
-
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || 'Error al enviar');
-      }
-
-      setFormState('sent');
-    } catch (err: unknown) {
-      setErrorMsg(err instanceof Error ? err.message : 'Error al enviar el mensaje.');
-      setFormState('error');
-    }
-  };
-
-  const resetForm = () => {
-    setName(''); setEmail(''); setSubject(''); setMessage('');
-    setFormState('idle'); setErrorMsg('');
-  };
 
   const motivos = [
     { icon: 'science', label: 'Colaboración en investigación', desc: 'Proyectos conjuntos, co-autoría, datos clínicos' },
@@ -51,6 +13,8 @@ export default function ContactoPage() {
     { icon: 'code', label: 'Desarrollo de soluciones IA', desc: 'Modelos clínicos, agentes, herramientas' },
     { icon: 'handshake', label: 'Alianzas institucionales', desc: 'FUCS, hospitales, grupos de investigación' },
   ];
+
+  const mailtoHref = `mailto:siembrau@gmail.com${subject ? `?subject=${encodeURIComponent(subject)}` : ''}`;
 
   return (
     <>
@@ -101,122 +65,38 @@ export default function ContactoPage() {
             ))}
           </div>
 
-          {/* Grid principal: formulario + info */}
+          {/* Grid principal: contacto + info */}
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
 
-            {/* Formulario */}
+            {/* Bloque de contacto directo */}
             <div className="lg:col-span-3">
-              {formState === 'sent' ? (
-                <div className="bg-[var(--color-surface-container-low)] p-10 rounded-[40px] border border-[var(--color-primary)]/10 text-center">
-                  <span className="material-symbols-outlined text-5xl text-[var(--color-primary)] block mb-4" style={{ fontVariationSettings: "'FILL' 1" }}>mark_email_read</span>
-                  <h3 className="text-2xl font-extrabold text-[var(--color-primary)] mb-2">¡Mensaje enviado!</h3>
-                  <p className="text-[var(--color-on-surface-variant)] text-sm mb-8 max-w-sm mx-auto">
-                    Tu mensaje llegó correctamente. Te responderemos en un plazo de 48–72 horas hábiles.
-                  </p>
-                  <button
-                    onClick={resetForm}
-                    className="px-6 py-3 bg-[var(--color-primary)] text-white font-bold rounded-xl hover:bg-[var(--color-secondary)] transition-colors"
-                  >
-                    Enviar otro mensaje
-                  </button>
+              <div className="bg-[var(--color-surface-container-lowest)] p-8 lg:p-10 rounded-[40px] border border-[var(--color-outline-variant)]/20 shadow-sm space-y-6">
+                <h2 className="text-2xl font-extrabold text-[var(--color-primary)] tracking-tight">Escríbenos</h2>
+                <p className="text-[var(--color-on-surface-variant)] text-sm leading-relaxed">
+                  Puedes contactarnos directamente por correo electrónico. Si seleccionaste un tema de interés arriba, se incluirá en el asunto automáticamente.
+                </p>
+
+                <a
+                  href={mailtoHref}
+                  className="flex items-center justify-center gap-3 w-full py-4 bg-[var(--color-primary)] text-white font-bold rounded-xl hover:bg-[var(--color-secondary)] shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all text-base"
+                >
+                  <span className="material-symbols-outlined text-[20px]">mail</span>
+                  Abrir correo electrónico
+                </a>
+
+                <p className="text-xs text-[var(--color-outline)] text-center">
+                  siembrau@gmail.com
+                </p>
+
+                <div className="p-4 bg-[var(--color-surface-container-low)] rounded-2xl border border-[var(--color-outline-variant)]/20 text-xs text-[var(--color-on-surface-variant)] italic text-center">
+                  El formulario de contacto en línea estará disponible en la versión completa de la plataforma.
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="bg-[var(--color-surface-container-lowest)] p-8 lg:p-10 rounded-[40px] border border-[var(--color-outline-variant)]/20 shadow-sm space-y-6">
-                  <h2 className="text-2xl font-extrabold text-[var(--color-primary)] tracking-tight">Escríbenos</h2>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Nombre */}
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-xs font-bold text-[var(--color-outline)] uppercase tracking-wider">
-                        Nombre completo <span className="text-red-400">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={name}
-                        onChange={e => setName(e.target.value)}
-                        placeholder="Tu nombre"
-                        className="px-4 py-3 rounded-xl bg-[var(--color-surface-container-low)] border border-[var(--color-outline-variant)]/30 text-[var(--color-on-surface)] placeholder:text-[var(--color-outline)] text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
-                      />
-                    </div>
-                    {/* Correo */}
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-xs font-bold text-[var(--color-outline)] uppercase tracking-wider">
-                        Correo electrónico <span className="text-red-400">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                        placeholder="tu@correo.com"
-                        className="px-4 py-3 rounded-xl bg-[var(--color-surface-container-low)] border border-[var(--color-outline-variant)]/30 text-[var(--color-on-surface)] placeholder:text-[var(--color-outline)] text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Asunto */}
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-[var(--color-outline)] uppercase tracking-wider">
-                      Asunto
-                    </label>
-                    <input
-                      type="text"
-                      value={subject}
-                      onChange={e => setSubject(e.target.value)}
-                      placeholder="¿De qué quieres hablar?"
-                      className="px-4 py-3 rounded-xl bg-[var(--color-surface-container-low)] border border-[var(--color-outline-variant)]/30 text-[var(--color-on-surface)] placeholder:text-[var(--color-outline)] text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors"
-                    />
-                  </div>
-
-                  {/* Mensaje */}
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-[var(--color-outline)] uppercase tracking-wider">
-                      Mensaje <span className="text-red-400">*</span>
-                    </label>
-                    <textarea
-                      required
-                      rows={5}
-                      value={message}
-                      onChange={e => setMessage(e.target.value)}
-                      placeholder="Cuéntanos sobre tu propuesta, duda o idea..."
-                      className="px-4 py-3 rounded-xl bg-[var(--color-surface-container-low)] border border-[var(--color-outline-variant)]/30 text-[var(--color-on-surface)] placeholder:text-[var(--color-outline)] text-sm focus:outline-none focus:border-[var(--color-primary)] transition-colors resize-none"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={formState === 'sending' || !name || !email || !message}
-                    className={`w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all ${
-                      !name || !email || !message
-                        ? 'bg-[var(--color-surface-container-high)] text-[var(--color-outline)] cursor-not-allowed'
-                        : 'bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] shadow-lg hover:shadow-xl hover:-translate-y-0.5'
-                    }`}
-                  >
-                    {formState === 'sending' ? (
-                      <>
-                        <span className="material-symbols-outlined animate-spin text-lg">sync</span>
-                        Preparando mensaje...
-                      </>
-                    ) : (
-                      <>
-                        Enviar mensaje
-                        <span className="material-symbols-outlined text-[18px]">send</span>
-                      </>
-                    )}
-                  </button>
-
-                  {formState === 'error' && (
-                    <p className="text-red-500 text-sm text-center">{errorMsg}</p>
-                  )}
-                </form>
-              )}
+              </div>
             </div>
 
             {/* Panel de información */}
             <div className="lg:col-span-2 space-y-6">
 
-              {/* Tiempo de respuesta */}
               <div className="bg-[var(--color-surface-container-lowest)] p-6 rounded-3xl border border-[var(--color-outline-variant)]/20">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">
@@ -232,7 +112,6 @@ export default function ContactoPage() {
                 </p>
               </div>
 
-              {/* Institución */}
               <div className="bg-[var(--color-surface-container-lowest)] p-6 rounded-3xl border border-[var(--color-outline-variant)]/20">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-xl bg-[var(--color-secondary)]/10 flex items-center justify-center">
@@ -249,7 +128,6 @@ export default function ContactoPage() {
                 </p>
               </div>
 
-              {/* Áreas de interés */}
               <div className="bg-[var(--color-primary)]/[0.04] p-6 rounded-3xl border border-[var(--color-primary)]/10">
                 <p className="text-[10px] text-[var(--color-outline)] uppercase font-bold tracking-wider mb-4">Áreas de trabajo</p>
                 <div className="flex flex-wrap gap-2">

@@ -2,14 +2,11 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SolutionCard from '@/components/SolutionCard';
 import StarRating from '@/components/StarRating';
-import RatingFeedback from '@/components/RatingFeedback';
 import { mockContent } from '@/lib/mockData';
-import prisma from '@/lib/prisma';
 import SolutionDisclaimerWrapper from '@/components/SolutionDisclaimerWrapper';
 
 export default async function HematologiaPage() {
   const research = mockContent.find(c => c.slug === 'hematologia');
-  const pub = await prisma.publication.findUnique({ where: { slug: 'hematologia' } });
   const solution = mockContent.find(c => c.slug === 'clasificacion-blastos-vit');
 
   if (!research) return <div>Contenido no encontrado</div>;
@@ -222,7 +219,7 @@ export default async function HematologiaPage() {
 
             {/* Sección de Calificación */}
             <div className="pt-8 border-t border-[var(--color-outline-variant)]/30">
-              {pub && <RatingFeedback publicationId={pub.id} category={pub.category} />}
+                            <p className="text-xs text-[var(--color-outline)] italic">La valoración interactiva estará disponible en la versión completa de la plataforma.</p>
             </div>
 
           </div>

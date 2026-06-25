@@ -5,12 +5,14 @@ import Footer from '@/components/Footer';
 import RatingFeedback from '@/components/RatingFeedback';
 import StarRating from '@/components/StarRating';
 import SolutionCard from '@/components/SolutionCard';
+import EducationCard from '@/components/EducationCard';
 import { mockContent } from '@/lib/mockData';
 import Link from 'next/link';
 
 export default function ProyectoGloriaPage() {
   const article = mockContent.find((c) => c.slug === 'proyecto-gloria');
   const medGemma = mockContent.find((c) => c.slug === 'medgemma-27b');
+  const tallerEducacion = mockContent.find((c) => c.slug === 'taller-patologia-computacional');
 
   if (!article) return null;
 
@@ -187,6 +189,16 @@ export default function ProyectoGloriaPage() {
                     <em>Transl Lung Cancer Res</em>. 30 de mayo de 2025;14(5):1756-69. doi:10.21037/tlcr-2024-1196.
                   </li>
                 </ul>
+              </div>
+
+              <div className="mb-12">
+                <h3 className="text-xl font-bold text-[var(--color-on-surface)] mb-6 border-b border-[var(--color-outline-variant)]/20 pb-2">Actividades de Formación</h3>
+                <p className="text-[var(--color-on-surface-variant)] mb-6">El programa GLORIA desarrolla actividades de formación continua para profesionales de la salud en patología digital e inteligencia artificial:</p>
+                {tallerEducacion && (
+                  <div className="max-w-sm">
+                    <EducationCard content={tallerEducacion} />
+                  </div>
+                )}
               </div>
 
               <div>
