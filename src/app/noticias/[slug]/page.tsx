@@ -41,7 +41,11 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
             <div className="flex items-center gap-3 bg-[var(--color-primary)]/5 px-4 py-2 rounded-full border border-[var(--color-primary)]/10 inline-flex">
               <span className="material-symbols-outlined text-[var(--color-primary)] text-sm">calendar_today</span>
               <span className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-tighter italic">
-                {slug === 'constitucion-singularidad' ? 'Bogotá D.C., 16 de junio de 2025' : formattedDate}
+                {slug === 'constitucion-singularidad'
+                  ? 'Bogotá D.C., 16 de junio de 2025'
+                  : slug === 'premio-flamecipp-cordoba-2026'
+                  ? 'Córdoba, Argentina — 26 al 29 de mayo de 2026'
+                  : formattedDate}
               </span>
             </div>
           </div>

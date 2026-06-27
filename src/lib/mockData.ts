@@ -17,7 +17,7 @@ export const mockContent: Content[] = [
     solution_url: null,
     average_rating: 0,
     rating_count: 0,
-    image_url: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&auto=format&fit=crop',
+    image_url: '/images/flamecipp-2026.jpg',
     logo_icon: 'workspace_premium'
   },
   {
