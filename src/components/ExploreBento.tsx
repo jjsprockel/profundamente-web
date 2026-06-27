@@ -38,12 +38,12 @@ export default function ExploreBento() {
             </div>
           </div>
 
-          {/* Education Block */}
-          <Link href="/p/protocolos-eticos" className="bg-[var(--color-primary)] text-white p-8 rounded-3xl flex flex-col justify-between shadow-sm hover:opacity-90 transition-opacity">
-            <span className="material-symbols-outlined text-4xl mb-4">menu_book</span>
+          {/* Taller IA Block */}
+          <Link href="/p/taller-ia-investigacion" className="bg-[var(--color-primary)] text-white p-8 rounded-3xl flex flex-col justify-between shadow-sm hover:opacity-90 transition-opacity">
+            <span className="material-symbols-outlined text-4xl mb-4">biotech</span>
             <div>
-              <h4 className="text-lg font-bold mb-2">Protocolos Éticos</h4>
-              <p className="text-xs text-white/70">Guía práctica para el uso de IA en entornos clínicos.</p>
+              <h4 className="text-lg font-bold mb-2">Taller IA · Investigación</h4>
+              <p className="text-xs text-white/70">6 sesiones prácticas de IA generativa para investigación en salud.</p>
             </div>
           </Link>
 
