@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SolutionCard from '@/components/SolutionCard';
+import Link from 'next/link';
 import { mockContent } from '@/lib/mockData';
 import SolutionDisclaimerWrapper from '@/components/SolutionDisclaimerWrapper';
 
@@ -37,6 +38,32 @@ export default async function FracturaTobilloPage() {
               </p>
             </div>
           </header>
+
+          {/* Tarjeta de Premio FLAMeCiPP */}
+          <Link
+            href="/noticias/premio-flamecipp-cordoba-2026"
+            className="group flex flex-col md:flex-row items-center gap-6 bg-gradient-to-r from-amber-50 via-amber-50 to-orange-50 border border-amber-200 rounded-3xl p-8 mb-12 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+          >
+            <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-400 rounded-2xl flex items-center justify-center shadow-md">
+              <span className="material-symbols-outlined text-white text-4xl">workspace_premium</span>
+            </div>
+            <div className="flex-grow text-center md:text-left">
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-amber-600 mb-1">
+                Premio Internacional · Mayo 2026
+              </p>
+              <h3 className="text-xl font-extrabold text-[var(--color-primary)] mb-1 leading-tight">
+                Mejor Tema Libre FLAMeCiPP
+              </h3>
+              <p className="text-sm text-[var(--color-on-surface-variant)] leading-relaxed">
+                11° Congreso FLAMeCiPP — Federación Latinoamericana de Medicina y Cirugía de la Pierna y el Pie<br />
+                <span className="text-[var(--color-outline)] text-xs">Córdoba, Argentina · 26–29 de mayo de 2026</span>
+              </p>
+            </div>
+            <div className="flex-shrink-0 flex items-center gap-2 text-amber-600 font-bold text-sm group-hover:gap-3 transition-all whitespace-nowrap">
+              Ver noticia
+              <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </div>
+          </Link>
 
           <div className="grid grid-cols-1 gap-16">
             
@@ -128,8 +155,14 @@ export default async function FracturaTobilloPage() {
                     <span className="material-symbols-outlined text-[var(--color-secondary)]">campaign</span> Ponencias
                   </h3>
                   <ul className="text-xs text-[var(--color-on-surface-variant)] space-y-2">
-                    <li className="p-3 bg-white rounded-xl border border-[var(--color-outline-variant)]/20 shadow-sm italic">Presentación en congresos nacionales de ortopedia.</li>
-                    <li className="p-3 bg-white rounded-xl border border-[var(--color-outline-variant)]/20 shadow-sm italic">Participación en eventos internacionales de IA.</li>
+                    <li className="p-3 bg-amber-50 rounded-xl border border-amber-200 shadow-sm">
+                      <span className="flex items-center gap-1.5 text-[9px] font-extrabold uppercase tracking-wider text-amber-600 mb-1">
+                        <span className="material-symbols-outlined text-[12px]">workspace_premium</span>
+                        Mejor Tema Libre · FLAMeCiPP 2026
+                      </span>
+                      <span className="italic">11° Congreso FLAMeCiPP / 26° Congreso SAMeCiPP, Córdoba, Argentina.</span>
+                    </li>
+                    <li className="p-3 bg-white rounded-xl border border-[var(--color-outline-variant)]/20 shadow-sm italic">Congreso Nacional de Ortopedia y Traumatología — Colombia.</li>
                   </ul>
                 </div>
  
