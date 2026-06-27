@@ -2,6 +2,49 @@ import { Content } from '@/types/database';
 
 export const mockContent: Content[] = [
   {
+    id: '33',
+    title: 'Lanzamiento: Taller de IA en Investigación en Salud — FUCS / ProfundaMente',
+    slug: 'lanzamiento-taller-ia-investigacion',
+    excerpt: 'El Laboratorio ProfundaMente y la FUCS abren acceso al taller práctico de IA generativa aplicada a la investigación clínica y epidemiológica, estructurado en 6 sesiones y 8 horas de formación.',
+    body_content: `El Laboratorio ProfundaMente, en alianza con la Fundación Universitaria de Ciencias de la Salud (FUCS) y en el marco del Programa GLORIA, pone a disposición el Taller de IA en Investigación en Salud: un programa práctico de formación en inteligencia artificial generativa orientado a investigadores, docentes, residentes y profesionales de las ciencias de la salud.\n\nEl taller está estructurado en cuatro bloques y seis sesiones de trabajo, con una duración total de 8 horas. Cada sesión combina una introducción conceptual breve con actividades guiadas y productos concretos que los participantes pueden aplicar directamente a sus propios proyectos de investigación.\n\nPropósito central: Formar participantes capaces de integrar IA generativa en tareas reales de investigación en salud, manteniendo criterios de trazabilidad, verificación, ética, reproducibilidad y responsabilidad académica.\n\nSesiones del taller:\n\nSesión 1 — Del chatbot a la infografía metodológica (2 horas): Diseño de prompts robustos, extracción metodológica de artículos científicos y generación de visualizaciones.\n\nSesión 2A — NotebookLM para lectura y síntesis (1 hora): Trabajo con fuentes documentales, consultas referenciadas y producción de recursos de estudio.\n\nSesión 2B — GPT personalizados y Gems (1 hora): Diseño de asistentes académicos especializados para automatizar tareas repetitivas en investigación.\n\nSesión 3A — Investigación profunda asistida por IA (1 hora): Deep Research con evaluación crítica de pertinencia y trazabilidad de fuentes.\n\nSesión 3B — Escritura asistida por IA (1 hora): Planificación, redacción, revisión y adaptación de textos académicos con declaración de uso.\n\nSesión 4 — Análisis de bases de datos con Python (2 horas): Flujo reproducible en Google Colab desde carga de datos hasta modelos predictivos con scikit-learn, XGBoost y LightGBM.\n\nEl taller es de acceso abierto y se puede seguir en línea desde la plataforma del Laboratorio ProfundaMente.`,
+    category: 'news',
+    tags: ['IAGenerativa', 'Investigación', 'FUCS', 'ProfundaMente', 'Educación', 'Python', 'GLORIA'],
+    published_at: '2026-06-27T09:00:00Z',
+    base_relevance: 88,
+    views_count: 0,
+    is_active: true,
+    is_featured: false,
+    solution_url: null,
+    average_rating: 0,
+    rating_count: 0,
+    image_url: '/images/taller-ia-investigacion-cartelera.png',
+    logo_icon: 'school',
+    social_links: [
+      { platform: 'Taller', url: 'https://jjsprockel.github.io/taller-IA-Investigacion/', icon: 'open_in_new' }
+    ]
+  },
+  {
+    id: '32',
+    title: 'Taller de IA en Investigación en Salud',
+    slug: 'taller-ia-investigacion',
+    excerpt: 'Programa práctico en 6 sesiones guiadas para incorporar IA generativa en investigación clínica y epidemiológica. FUCS · Laboratorio ProfundaMente · Programa GLORIA.',
+    body_content: 'Taller práctico en inteligencia artificial generativa aplicada a la investigación en salud. Estructurado en 6 sesiones con 8 horas de formación. Dirigido a docentes, estudiantes, residentes, investigadores y profesionales de ciencias de la salud.',
+    category: 'education',
+    tags: ['IAGenerativa', 'Investigación', 'FUCS', 'Python', 'NotebookLM', 'GLORIA'],
+    published_at: '2026-06-27T09:00:00Z',
+    base_relevance: 92,
+    views_count: 0,
+    is_active: true,
+    is_featured: true,
+    solution_url: null,
+    average_rating: 0,
+    rating_count: 0,
+    education_subtype: 'Taller',
+    education_area: ['IA Generativa', 'Investigación en Salud', 'Python', 'Ciencia de Datos'],
+    image_url: '/images/taller-ia-investigacion-cartelera.png',
+    logo_icon: 'biotech'
+  },
+  {
     id: '31',
     title: 'Premio Mejor Tema Libre FLAMeCiPP — Congreso SAMeCiPP / FLAMeCiPP Córdoba 2026',
     slug: 'premio-flamecipp-cordoba-2026',

@@ -28,7 +28,7 @@ export interface Content {
 
   // Nuevos campos fase 11 (Noticias y Educación)
   social_links?: { platform: string; url: string; icon?: string }[];
-  education_subtype?: 'Módulo Educativo' | 'Curso' | 'Diplomado' | 'Tutor';
+  education_subtype?: 'Módulo Educativo' | 'Curso' | 'Diplomado' | 'Tutor' | 'Taller';
   education_area?: string[]; // Ej: ['Deep Learning', 'Medicina', 'Agentes']
   start_date?: string;
   end_date?: string;
