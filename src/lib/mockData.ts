@@ -2,6 +2,25 @@ import { Content } from '@/types/database';
 
 export const mockContent: Content[] = [
   {
+    id: '31',
+    title: 'Premio Mejor Tema Libre FLAMeCiPP — Congreso SAMeCiPP / FLAMeCiPP Córdoba 2026',
+    slug: 'premio-flamecipp-cordoba-2026',
+    excerpt: 'El trabajo sobre predicción de fracturas del maléolo posterior mediante transformers visuales obtiene el Premio Mejor Tema Libre en el 11° Congreso FLAMeCiPP, Córdoba, Argentina.',
+    body_content: `El equipo del laboratorio ProfundaMente obtuvo el Premio a Mejor Tema Libre de la Federación Latinoamericana de Medicina y Cirugía de la Pierna y el Pie (FLAMeCiPP) durante el 26° Congreso SAMeCiPP y 11° Congreso FLAMeCiPP, celebrado en la Ciudad de Córdoba, Argentina, del 26 al 29 de mayo de 2026.\n\nEl trabajo premiado, titulado "Predicción de fracturas del maléolo posterior del tobillo: algoritmos de aprendizaje profundo basados en transformers visuales", fue presentado por los investigadores Claudia Caicedo Donoso, John Jaime Sprockel Díaz, Ricardo Rodriguez Ciodaro, Alvaro Santiago Guerrero Forero, Rodolfo Paez González y Sergio Enderica González.\n\nLa investigación desarrolla modelos de inteligencia artificial basados en arquitecturas de visión por computador (transformers visuales) para la predicción automatizada de fracturas del maléolo posterior del tobillo a partir de imágenes radiográficas. Este tipo de lesiones representa un reto diagnóstico frecuente en urgencias, y la herramienta propone un apoyo objetivo para la clasificación y toma de decisiones clínicas.\n\nEl galardón fue entregado por el Dr. Juan Yañez Arauz, Presidente de FLAMeCiPP, en el marco del congreso bianual que reúne a los referentes de la medicina y cirugía de la pierna y el pie de toda Latinoamérica. El reconocimiento consolida a ProfundaMente como laboratorio de referencia en la integración de inteligencia artificial con las especialidades quirúrgicas de la región.\n\nSAMeCiPP — Sociedad Argentina de Medicina y Cirugía de Pierna, Tobillo y Pie\nFLAMeCiPP — Federación Latinoamericana de Medicina y Cirugía de la Pierna y el Pie`,
+    category: 'news',
+    tags: ['FLAMeCiPP', 'SAMeCiPP', 'Premio', 'Ortopedia', 'Córdoba2026', 'Tobillo', 'DeepLearning'],
+    published_at: '2026-05-29T12:00:00Z',
+    base_relevance: 95,
+    views_count: 0,
+    is_active: true,
+    is_featured: true,
+    solution_url: null,
+    average_rating: 0,
+    rating_count: 0,
+    image_url: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&auto=format&fit=crop',
+    logo_icon: 'workspace_premium'
+  },
+  {
     id: '2',
     title: 'Predicción de Riesgo Intrahospitalario',
     slug: 'prediccion-riesgo',
